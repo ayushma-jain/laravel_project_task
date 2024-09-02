@@ -5,13 +5,11 @@ use App\Http\Controllers\AvailabilityController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/categories',[App\Http\Controllers\CategoryController::class,'index'])->name('categories.index');
 
 Route::post('/categories',[App\Http\Controllers\CategoryController::class,'store'])->name('categories.store');
@@ -23,3 +21,5 @@ Route::get('/availabilities',[App\Http\Controllers\AvailabilityController::class
 Route::post('/availabilities',[App\Http\Controllers\AvailabilityController::class,'store'])->name('availabilities.store');
 
 Route::get('/create-availabilities',[App\Http\Controllers\AvailabilityController::class,'createAvailabilityView'])->name('create-availabilities')->middleware('auth');
+
+Route::resource('posts',App\Http\Controllers\PostController::class);
