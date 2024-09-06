@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Home Page
+Home Page Testing
 @endsection
 @section('content')
 <div class="container">
