@@ -6,7 +6,7 @@ Home Page
 <div class="container">
    <div class="row">
       @foreach ($posts as $key=>$post)
-         <div class="col-md-3 col-sm-12 col-xs-12">
+         <div class="col-md-3 col-sm-12 col-xs-12 mt-4">
             <div class="card">
                <div class="card-header">
                   <small>{{$post->title}}</small>

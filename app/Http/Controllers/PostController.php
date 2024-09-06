@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Container\Attributes\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
 {
@@ -24,6 +25,10 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
+
+        Cache::put('key', "Hifdf", now()->addHours(4));
+
+
         return view('posts.index',compact('posts'));
     }
 

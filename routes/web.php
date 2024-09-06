@@ -9,7 +9,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Auth::routes(['verify' => true]);
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::get('/categories',[App\Http\Controllers\CategoryController::class,'index'])->name('categories.index');
 
 Route::post('/categories',[App\Http\Controllers\CategoryController::class,'store'])->name('categories.store');
